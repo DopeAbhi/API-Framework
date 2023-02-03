@@ -32,6 +32,7 @@ import static org.junit.Assert.assertEquals;
 public class stepDefination extends Utlis {
 
     RequestSpecification res;
+
     ResponseSpecification resspec;
     Response response;
     TestBuildJava data=new TestBuildJava();
@@ -78,9 +79,18 @@ public class stepDefination extends Utlis {
 
     @And("{string} in response body is {string}")
     public void status_in_response_body_is_ok(String string1, String string2) throws Throwable {
-        String resp=response.asString();
-        JsonPath js=new JsonPath(resp);
-        assertEquals(js.get(string1).toString(),string2);
+
+
+        assertEquals(getJsonPath(response,string1),string2);
+    }
+    @Then("verify place Id created maps to {string} using {string}")
+    public void verify_place_id_created_maps_to_using(String string, String string2) throws Throwable {
+        String place_id=getJsonPath(response,"place_id");
+        res=given().spec(requestSpecification()).queryParam("place_id",place_id);
+        user_calls_with_post_http_request(string2,"GET");
+        String name=getJsonPath(response,"name");
+        System.out.println(name);
+
     }
 
 }
