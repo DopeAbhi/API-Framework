@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e3a8def-162f-403a-8c8a-7ca92148c58f" name="Changes" comment="30 jan" />
+    <list default="true" id="7e3a8def-162f-403a-8c8a-7ca92148c58f" name="Changes" comment="30 jan">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Pojo/AddPlace.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Pojo/Location.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Resources/APIResources.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Resources/TestBuildJava.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Resources/Utlis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Resources/global.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/features/placeValidations.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/placeValidations.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefination/stepDefination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefination/stepDefination.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,7 +52,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "/home/abhay/Downloads/jackson-databind-2.14.1.jar",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
