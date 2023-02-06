@@ -36,4 +36,10 @@ public class TestBuildJava {
         return p;
 
     }
+    public String deletePlacePayload(String place_id)
+    {
+        return"{\n" +
+                "    \"place_id\":\""+place_id+"\"\n" +
+                "}";
+    }
 }

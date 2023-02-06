@@ -16,21 +16,6 @@ import java.io.*;
 
 public class Utlis {
     public static RequestSpecification req;
-    public RequestSpecification requestSpecification() throws IOException
-
-    {
-        if (req==null) {
-            PrintStream log = new PrintStream(new FileOutputStream("logging.txt"));
-            req = new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl")).addQueryParam("key", "qaclick123").
-
-                    addFilter(RequestLoggingFilter.logRequestTo(log))
-                    .addFilter(ResponseLoggingFilter.logResponseTo(log))
-
-                    .setContentType(ContentType.JSON).build();   //request spec builder
-            return req;
-        }
-        return req;
-    }
     public static String getGlobalValue(String key) throws IOException
     {
         Properties prop=new Properties();
@@ -39,6 +24,23 @@ public class Utlis {
         return prop.getProperty(key);
 
     }
+    public RequestSpecification requestSpecification() throws IOException
+
+    {
+
+        if (req==null) {
+            PrintStream log = new PrintStream(new FileOutputStream("logging.txt"));
+            req = new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl")).addQueryParam("key", "qaclick123")
+
+                    .addFilter(RequestLoggingFilter.logRequestTo(log))
+                    .addFilter(ResponseLoggingFilter.logResponseTo(log))
+
+                    .setContentType(ContentType.JSON).build();   //request spec builder
+            return req;
+        }
+        return req;
+    }
+
     public String getJsonPath(Response response, String key)
     {
         String resp=response.asString();

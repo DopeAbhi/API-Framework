@@ -26,12 +26,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.requestSpecification;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Cucumber.class)
 public class stepDefination extends Utlis {
 
     RequestSpecification res;
+    static String place_id;
 
     ResponseSpecification resspec;
     Response response;
@@ -43,7 +45,6 @@ public class stepDefination extends Utlis {
 
 
 
-        //response spec builder
 
                  res = given().spec(requestSpecification()).body(data.addPlacePayload(name,language,address));
 
@@ -52,7 +53,7 @@ public class stepDefination extends Utlis {
 
 
     @When("user calls {string} with {string} http request")
-    public void user_calls_with_post_http_request(String resource,String method) throws Throwable {
+    public void user_calls_with_http_Post_request(String resource,String method) throws Throwable {
 
       APIResources resourcesAPI=APIResources.valueOf(resource); //enum implementation
         System.out.println(resourcesAPI.getResource());
@@ -85,12 +86,21 @@ public class stepDefination extends Utlis {
     }
     @Then("verify place Id created maps to {string} using {string}")
     public void verify_place_id_created_maps_to_using(String string, String string2) throws Throwable {
-        String place_id=getJsonPath(response,"place_id");
+         place_id=getJsonPath(response,"place_id");
         res=given().spec(requestSpecification()).queryParam("place_id",place_id);
-        user_calls_with_post_http_request(string2,"GET");
+        user_calls_with_http_Post_request(string2,"GET");
         String name=getJsonPath(response,"name");
         System.out.println(name);
 
     }
+
+    @Given("DeletePlace Payload")
+    public void delete_place_payload() throws IOException{
+       res= given().spec(requestSpecification()).body(data.deletePlacePayload(place_id));
+        // Write code here that turns the phrase above into concrete actions
+
+    }
+
+
 
 }
